@@ -41,6 +41,12 @@ if (args.named["--tls"]) {
     copy(serverOpts, tlsfs.readCertsSync(tlsPaths));
 }
 
+process.on('SIGINT', function() {
+    console.log( "\nGracefully shutting down from SIGINT (Ctrl-C)" );
+    // some other closing procedures go here
+    process.exit(1);
+});
+
 // create and start SMTP server
 smtp.createServer(serverOpts, function(req) {
     var id;
