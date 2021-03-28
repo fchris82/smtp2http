@@ -21,6 +21,13 @@ key file, or a cert file followed by a key file followed by a signing
 authority certificate.
 ```
 
+### Docker
+
+```sh
+docker build -t smtp2http .
+# There is a dot here!----^
+docker run -p 25:25 smtp2http http://example.com/foo
+```
 
 Examples
 --------
